@@ -177,7 +177,7 @@ namespace CallRecordInsights.Extensions
                 var credLoader = new DefaultCertificateLoader();
                 tokenCredentials.AddRange(identityOptions.ClientCertificates
                     .Where(c => credLoader.ShouldAddTokenCredential(c))
-                    .Select(c => new ClientCertificateCredential(identityOptions.TenantId, identityOptions.ClientId, c.Certificate)));
+                    .Select(c => new ClientCertificateCredential(identityOptions.TenantId, identityOptions.ClientId, c.Certificate, clientCertificateCredentialOptions)));
             }
 
             tokenCredentials.Add(new DefaultAzureCredential(defaultAzureCredentialOptions));
